@@ -38,7 +38,8 @@ if __name__ == "__main__":
       if extras[-1].startswith("-"):
         extras[-1] = extras[-1][1:]
 
-  uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
+  # uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
+  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{template_layers}_{num_tests}_{patch_size}"
   if len(extras) > 0:
     uid += "_"
     uid += "_".join(extras)
@@ -65,16 +66,15 @@ if __name__ == "__main__":
     "data_dir": data_dir,
     "num_tests": num_tests,
     "epsilon": epsilon,
-    "datetime": datetime.datetime.now().isoformat(),
-    # "status": str(minizinc.result.Status.UNKNOWN)
-    "status": "UNSAT"
+    "patch_size": patch_size,
+    "datetime": datetime.datetime.now().isoformat()
   }
 
   # If the file exists, we do not delete what is already inside but append new content.
   # We start all benchmarks with a special line {"lattice-land/bench": "start"}.
   print("Writing to file: ", log_filename)
   with open(log_filename, "a") as file:
-    header = {"type": "lattice-land", "lattice-land": "start"}
+    header = {"type": verifier, verifier: "start"}
     json.dump(header, file)
     file.write("\n")
     msg = {"type": "statistics", "statistics": stat_base}
