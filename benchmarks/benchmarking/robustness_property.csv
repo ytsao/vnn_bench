@@ -127,4 +127,3 @@
 "-g","9x500_best.pth","cifar","zonotope","None","l_infinity","box","1","None","None","mnist_1_rotation_40_proof_transfer","100","None",None
 "-g","9x500_best.pth","cifar","zonotope","None","l_infinity","box","2","None","None","mnist_1_rotation_40_proof_transfer","100","None",None
 "-g","9x500_best.pth","cifar","zonotope","None","l_infinity","box","1 2","None","None","mnist_1_rotation_40_proof_transfer","100","None",None
-,,,,,,,,,,,,,
