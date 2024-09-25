@@ -1,64 +1,64 @@
 "robustness_type","network_name","dataset","relu_transformer","label","template_method","template_domain","template_layers","template_with_hyperplanes","template_dir","data_dir","num_tests","epsilon",patch_size
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2","0","5x100_DiffAI_templates_7_1_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2","0","5x100_DiffAI_templates_7_2_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2","0","5x100_DiffAI_templates_7_3_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2","0","5x100_DiffAI_templates_7_4_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2","0","5x100_DiffAI_templates_7_5_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2","0","5x100_DiffAI_templates_7_6_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2","0","5x100_DiffAI_templates_7_7_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2","0","5x100_DiffAI_templates_7_8_box_exact_try5_w3.pkl","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2","0","5x100_DiffAI_templates_7_9_box_exact_try5_w3.pkl","None","None","0.05",None
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2","0","5x100_DiffAI_templates_7_1_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2","0","5x100_DiffAI_templates_7_2_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2","0","5x100_DiffAI_templates_7_3_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2","0","5x100_DiffAI_templates_7_4_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2","0","5x100_DiffAI_templates_7_5_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2","0","5x100_DiffAI_templates_7_6_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2","0","5x100_DiffAI_templates_7_7_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2","0","5x100_DiffAI_templates_7_8_box_exact_try5_w3.pkl","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2","0","5x100_DiffAI_templates_7_9_box_exact_try5_w3.pkl","None","None","0.1",None
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","3","0","5x100_DiffAI_templates_9_1_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","3","0","5x100_DiffAI_templates_9_2_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","3","0","5x100_DiffAI_templates_9_3_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","3","0","5x100_DiffAI_templates_9_4_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","3","0","5x100_DiffAI_templates_9_5_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","3","0","5x100_DiffAI_templates_9_6_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","3","0","5x100_DiffAI_templates_9_7_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","3","0","5x100_DiffAI_templates_9_8_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","3","0","5x100_DiffAI_templates_9_9_box_exact_w3.pk","None","None","0.05",None
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","3","0","5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","3","0","5x100_DiffAI_templates_9_1_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","3","0","5x100_DiffAI_templates_9_2_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","3","0","5x100_DiffAI_templates_9_3_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","3","0","5x100_DiffAI_templates_9_4_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","3","0","5x100_DiffAI_templates_9_5_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","3","0","5x100_DiffAI_templates_9_6_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","3","0","5x100_DiffAI_templates_9_7_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","3","0","5x100_DiffAI_templates_9_8_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","3","0","5x100_DiffAI_templates_9_9_box_exact_w3.pk","None","None","0.1",None
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2 3","0","5x100_DiffAI_templates_7_1_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_1_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2 3","0","5x100_DiffAI_templates_7_2_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_2_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2 3","0","5x100_DiffAI_templates_7_3_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_3_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2 3","0","5x100_DiffAI_templates_7_4_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_4_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2 3","0","5x100_DiffAI_templates_7_5_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_5_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2 3","0","5x100_DiffAI_templates_7_6_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_6_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2 3","0","5x100_DiffAI_templates_7_7_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_7_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2 3","0","5x100_DiffAI_templates_7_8_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_8_box_exact_w3.pk","None","None","0.05",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2 3","0","5x100_DiffAI_templates_7_9_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_9_box_exact_w3.pk","None","None","0.05",None
 "-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
-"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","1","None","box","2 3","0","5x100_DiffAI_templates_7_1_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_1_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","2","None","box","2 3","0","5x100_DiffAI_templates_7_2_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_2_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","3","None","box","2 3","0","5x100_DiffAI_templates_7_3_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_3_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","4","None","box","2 3","0","5x100_DiffAI_templates_7_4_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_4_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","5","None","box","2 3","0","5x100_DiffAI_templates_7_5_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_5_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","6","None","box","2 3","0","5x100_DiffAI_templates_7_6_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_6_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2 3","0","5x100_DiffAI_templates_7_7_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_7_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2 3","0","5x100_DiffAI_templates_7_8_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_8_box_exact_w3.pk","None","None","0.1",None
+"-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2 3","0","5x100_DiffAI_templates_7_9_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_9_box_exact_w3.pk","None","None","0.1",None
 "-p","7x200_best.pth","mnist","zonotope","None","l_infinity","box","0","None","None","None","None","None",2
 "-p","7x200_best.pth","cifar","zonotope","None","l_infinity","box","0","None","None","None","None","None",2
 "-p","9x500_best.pth","mnist","zonotope","None","l_infinity","box","0","None","None","None","None","None",2
