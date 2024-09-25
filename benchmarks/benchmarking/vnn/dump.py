@@ -26,13 +26,10 @@ if __name__ == "__main__":
   data_dir = sys.argv[13]
   num_tests = sys.argv[14]
   epsilon = sys.argv[15]
+  patch_size = sys.argv[16]
   extras = []
   
-  print(output_dir)
-  print(robustness_type)
-  print(network_name)
-  
-  for i in range(16, len(sys.argv)):
+  for i in range(17, len(sys.argv)):
     arg = sys.argv[i].strip().replace(' ', '-')
     print(arg)
     if arg != "" and arg != "-s": # we use "-s" when there are "no special options to be used".
