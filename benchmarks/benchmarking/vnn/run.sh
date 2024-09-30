@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --time=01:00:00
+#SBATCH --time=12:00:00
 #SBATCH --partition=batch
 #SBATCH --nodes=2
 #SBATCH --exclusive
@@ -37,8 +37,6 @@ fi
 # I. Define the campaign to run.
 VNN_VERIFIER="orca"
 VERSION="v0.0.0" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
-VNN_TIMEOUT=1260000
-REAL_TIMEOUT=1200000
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property.csv"
@@ -68,4 +66,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --template_method {6} --template_domain {7} --template_layers {8} --template_with_hyperplanes {9} --template_dir {10} --data_dir {11} --num_tests {12} --epsilon {13} --patch_size {14} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --template_method {6} --template_domain {7} --template_layers {8} --template_with_hyperplanes {9} --template_dir {10} --data_dir {11} --num_tests {12} --epsilon {13} --patch_size {14} --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14} :::: $INSTANCES_PATH
