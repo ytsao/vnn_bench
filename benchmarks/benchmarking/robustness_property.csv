@@ -59,6 +59,8 @@
 "-l","5x100_DiffAI.pyt","mnist","zonotope","7","None","box","2 3","0","5x100_DiffAI_templates_7_7_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_7_box_exact_w3.pkl","None","0","0.1",0
 "-l","5x100_DiffAI.pyt","mnist","zonotope","8","None","box","2 3","0","5x100_DiffAI_templates_7_8_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_8_box_exact_w3.pkl","None","0","0.1",0
 "-l","5x100_DiffAI.pyt","mnist","zonotope","9","None","box","2 3","0","5x100_DiffAI_templates_7_9_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_9_box_exact_w3.pkl","None","0","0.1",0
+"-p","5x100_DiffAI.pyt","mnist","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2
+"-p","5x100_DiffAI.pyt","mnist","zonotope","-1","l_infinity","box","0","0","None","None","0","0",3
 "-p","7x200_best.pth","mnist","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2
 "-p","7x200_best.pth","cifar","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2
 "-p","9x500_best.pth","mnist","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2
@@ -127,4 +129,3 @@
 "-g","9x500_best.pth","cifar","zonotope","-1","l_infinity","box","1","0","None","mnist_1_rotation_40_proof_transfer","100","0",0
 "-g","9x500_best.pth","cifar","zonotope","-1","l_infinity","box","2","0","None","mnist_1_rotation_40_proof_transfer","100","0",0
 "-g","9x500_best.pth","cifar","zonotope","-1","l_infinity","box","1 2","0","None","mnist_1_rotation_40_proof_transfer","100","0",0
-,,,,,,,,,,,,,
