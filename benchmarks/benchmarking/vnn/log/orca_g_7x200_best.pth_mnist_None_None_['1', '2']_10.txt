@@ -1,0 +1,3 @@
+Images Verified/Total: 212/10
+Patches Submatched/Verified: 0.331/0.094
+Time spent: 16.94
