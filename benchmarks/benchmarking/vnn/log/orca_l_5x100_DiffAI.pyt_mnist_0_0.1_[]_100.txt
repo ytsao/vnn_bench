@@ -1,0 +1,48 @@
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Loaded templates per layer: {}
+Number of halfspace constraints per layer: {}
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Template at layer 7 not in []
+Loaded templates per layer: {}
+Number of halfspace constraints per layer: {}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 0
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 0/0/0/99/100
+Time spent: 28.021
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 0
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 77/77/0/99/100
+Time spent: 40.870
