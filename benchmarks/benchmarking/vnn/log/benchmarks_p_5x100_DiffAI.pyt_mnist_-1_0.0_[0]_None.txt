@@ -1,0 +1,6 @@
+Images Verified/Predicted/Total: 0/3353/10000
+Patches Submatched/Verified: 0.197/0.268
+Time spent: 3600.94
+Images Verified/Predicted/Total: 0/2500/10000
+Patches Submatched/Verified: 0.115/0.156
+Time spent: 3601.45

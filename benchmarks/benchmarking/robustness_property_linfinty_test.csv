@@ -1,0 +1,2 @@
+"robustness_type","network_name","dataset","relu_transformer","label","template_method","template_domain","template_layers","template_with_hyperplanes","template_dir","data_dir","num_tests","epsilon",patch_size
+"-l","5x100_DiffAI.pyt","mnist","zonotope","0","None","box","2 3","0","5x100_DiffAI_templates_7_0_box_exact_try5_w3.pkl  5x100_DiffAI_templates_9_0_box_exact_w3.pkl","None","0","0.05",0

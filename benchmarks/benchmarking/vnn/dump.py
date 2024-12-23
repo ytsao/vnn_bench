@@ -28,7 +28,7 @@ if __name__ == "__main__":
   epsilon = sys.argv[15]
   patch_size = sys.argv[16]
   extras = []
-  
+
   for i in range(17, len(sys.argv)):
     arg = sys.argv[i].strip().replace(' ', '-')
     print(arg)
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         extras[-1] = extras[-1][1:]
 
   # uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
-  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{template_layers}_{num_tests}_{patch_size}"
+  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{template_layers}_{data_dir}_{num_tests}_{patch_size}"
   if len(extras) > 0:
     uid += "_"
     uid += "_".join(extras)
@@ -80,8 +80,6 @@ if __name__ == "__main__":
     msg = {"type": "statistics", "statistics": stat_base}
     json.dump(msg, file)
     file.write("\n")
-    file.write("before loop\n")
     for line in stdin:
       file.write(line)
       file.flush()
-    file.write("after loop\n")

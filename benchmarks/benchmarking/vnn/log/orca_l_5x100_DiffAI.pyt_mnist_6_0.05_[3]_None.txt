@@ -1,0 +1,2 @@
+Loaded templates per layer: {9: 12}
+Number of halfspace constraints per layer: {9: 535}

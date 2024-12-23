@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-orca_linfinity_bench.out
+#SBATCH --output=slurm-benchmarks.out
 
 # Exits when an error occurs.
 set -e
@@ -35,11 +35,12 @@ if [ -n "$2" ]; then
 fi
 
 # I. Define the campaign to run.
-VNN_VERIFIER="orca"
+VNN_VERIFIER="benchmarks"
 VERSION="v0.0.0" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property.csv"
+# INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_patch_test.csv"
 
 # II. Prepare the command lines and output directory.
 VNN_COMMAND="python3 $VNN_WORKFLOW_PATH/../../../../src/$VNN_VERIFIER.py"

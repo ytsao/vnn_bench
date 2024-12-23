@@ -1,0 +1,3 @@
+"robustness_type","network_name","dataset","relu_transformer","label","template_method","template_domain","template_layers","template_with_hyperplanes","template_dir","data_dir","num_tests","epsilon",patch_size
+"-p","7x200_best.pth","cifar","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2
+"-p","9x500_best.pth","mnist","zonotope","-1","l_infinity","box","0","0","None","None","0","0",2

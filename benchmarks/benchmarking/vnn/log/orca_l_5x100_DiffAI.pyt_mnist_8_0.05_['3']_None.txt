@@ -1,0 +1,85 @@
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 541/3597/3051/5368/5851
+Time spent: 73.076
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 546/4138/3592/5368/5851
+Time spent: 66.223
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 546/3592/3046/5368/5851
+Time spent: 70.979
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 11.452
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 11.198
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 11.548
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 11.081
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 11.048
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 10.343
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 10.711
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 10.249
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 9.091
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 9.284
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 9.285
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 8.944
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 9.237
+Loaded templates per layer: {9: 1}
+Number of halfspace constraints per layer: {9: 58}
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 8
+Images Submatched/Verified/Verified no submatched/Predicted/Total: 85/626/541/905/974
+Time spent: 9.390
