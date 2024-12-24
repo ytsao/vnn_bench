@@ -39,7 +39,7 @@ VNN_VERIFIER="BaFA"
 VERSION="v0.0.1" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_BaFA.csv"
 # INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_linfinty_test.csv"
 # INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_patch_test.csv"
 
