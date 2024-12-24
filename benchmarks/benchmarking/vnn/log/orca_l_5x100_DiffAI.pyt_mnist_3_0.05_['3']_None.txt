@@ -83,3 +83,6 @@ Number of halfspace constraints per layer: {9: 4}
 Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 3
 Images Submatched/Verified/Verified no submatched/Predicted/Total: 240/756/516/939/1010
 Time spent: 9.533
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 3
+Images Submatched/Verified/Predicted/Total: 240/756/939/1010
+Time spent: 38.614
