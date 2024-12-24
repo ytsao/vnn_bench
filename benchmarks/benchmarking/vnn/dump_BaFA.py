@@ -22,9 +22,10 @@ if __name__ == "__main__":
   num_tests = sys.argv[9]
   epsilon = sys.argv[10]
   patch_size = sys.argv[11]
+  num_post_cons = sys.argv[12]
   extras = []
 
-  for i in range(12, len(sys.argv)):
+  for i in range(13, len(sys.argv)):
     arg = sys.argv[i].strip().replace(' ', '-')
     print(arg)
     if arg != "" and arg != "-s": # we use "-s" when there are "no special options to be used".
@@ -34,7 +35,7 @@ if __name__ == "__main__":
         extras[-1] = extras[-1][1:]
 
   # uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
-  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{data_dir}_{num_tests}_{patch_size}"
+  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{data_dir}_{num_tests}_{patch_size}_{num_post_cons}"
   if len(extras) > 0:
     uid += "_"
     uid += "_".join(extras)
@@ -57,6 +58,7 @@ if __name__ == "__main__":
     "num_tests": num_tests,
     "epsilon": epsilon,
     "patch_size": patch_size,
+    "num_post_cons": num_post_cons,
     "datetime": datetime.datetime.now().isoformat()
   }
 
