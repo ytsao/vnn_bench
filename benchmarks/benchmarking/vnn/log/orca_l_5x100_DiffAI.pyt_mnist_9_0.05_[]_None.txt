@@ -1,0 +1,9 @@
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 9
+Images Submatched/Verified/Predicted/Total: 200/731/908/1009
+Time spent: 36.877
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 9
+Images Submatched/Verified/Predicted/Total: 200/731/908/1009
+Time spent: 35.780
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 9
+Images Submatched/Verified/Predicted/Total: 200/731/908/1009
+Time spent: 37.467
