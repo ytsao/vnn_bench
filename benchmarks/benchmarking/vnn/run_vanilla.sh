@@ -55,7 +55,7 @@ else
   NUM_PARALLEL_EXPERIMENTS=1
 fi
 
-DUMP_PY_PATH="$VNN_WORKFLOW_PATH/dump.py"
+DUMP_PY_PATH="$VNN_WORKFLOW_PATH/dump_vanilla.py"
 
 # For replicability.
 cp -r $VNN_WORKFLOW_PATH $OUTPUT_DIR/
