@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-BaFA.out
+#SBATCH --output=slurm-BaFA-patch-200-1.out
 
 # Exits when an error occurs.
 set -e
