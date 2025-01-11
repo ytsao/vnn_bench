@@ -1,6 +1,0 @@
-Net: fc_5x100.pth, Dataset: mnist, Label: 0
-Images Submatched/Verified/Verified no submatched/Predicted/Total: 0/0/0/962/980
-Time spent: 395.082
-Net: fc_5x100.pth, Dataset: mnist, Label: 0
-Images Submatched/Verified/Verified no submatched/Predicted/Total: 0/0/0/967/980
-Time spent: 423.132

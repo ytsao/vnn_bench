@@ -1,5 +1,0 @@
-Loaded templates per layer: {7: 14}
-Number of halfspace constraints per layer: {7: 0}
-Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 9
-Images Submatched/Verified/Predicted/Total: 215/733/908/1009
-Time spent: 9.603
