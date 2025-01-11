@@ -36,10 +36,10 @@ fi
 
 # I. Define the campaign to run.
 VNN_VERIFIER="vanilla"
-VERSION="v-patch-300" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VERSION="v-linfinity-cifar-001" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_patch_300.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_cifar_linfinity_001.csv"
 # INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_patch.csv"
 
 # II. Prepare the command lines and output directory.
