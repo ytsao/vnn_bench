@@ -1,6 +1,0 @@
-Net: CaterinaEx2.pth, Dataset: toy, Label: 0
-Images Submatched/Verified/Verified no submatched/Predicted/Total: 1/1/0/0/1
-Time spent: 0.020
-Net: CaterinaEx2.pth, Dataset: toy, Label: 0
-Images Submatched/Verified/Verified no submatched/Predicted/Total: 1/1/0/0/1
-Time spent: 0.014

@@ -1,3 +1,0 @@
-Net: ToyNetNeg.pth, Dataset: toy, Label: 0
-Images Submatched/Verified/Verified no submatched/Predicted/Total: 0/0/0/0/1
-Time spent: 0.004

@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-vanillaout
+#SBATCH --output=slurm-vanilla-cifar-linfinity-005.out
 
 # Exits when an error occurs.
 set -e
@@ -67,4 +67,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --data_dir {6} --num_tests {7} --epsilon {8} --patch_size {9} --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} ::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --data_dir {6} --num_tests {7} --epsilon {8} --patch_size {9} --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: $INSTANCES_PATH
