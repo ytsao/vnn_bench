@@ -1,0 +1,30 @@
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 2.123
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/10/10/10
+Time spent: 0.767
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.995
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.825
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.669
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.610
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.532
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 1.108
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/10/10/10
+Time spent: 0.898
+Net: 5x100_DiffAI.pyt, Dataset: mnist, Label: 1
+Images Submatched/Verified/Predicted/Total: 0/9/10/10
+Time spent: 0.636

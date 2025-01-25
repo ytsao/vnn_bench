@@ -1,2 +1,2 @@
 robustness_type,network_name,dataset,relu_transformer,label,data_dir,num_tests,epsilon,patch_size
--p,9x500_best.pth,mnist,zonotope,-1,None,300,0,3
+-p,9x500_best.pth,mnist,box,-1,None,300,0,3
