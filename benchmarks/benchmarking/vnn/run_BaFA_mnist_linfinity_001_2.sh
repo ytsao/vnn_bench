@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-BaFA-mnist-linfinity-001-2.out
+#SBATCH --output=slurm-BaFA-mnist-linfinity-001-all.out
 
 # Exits when an error occurs.
 set -e
@@ -36,7 +36,7 @@ fi
 
 # I. Define the campaign to run.
 VNN_VERIFIER="BaFA"
-VERSION="v-linfinity-mnist-001-2" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VERSION="v-linfinity-mnist-001-all" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_mnist_linfinity_001.csv"
@@ -68,4 +68,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --data_dir {6} --num_tests {7} --epsilon {8} --patch_size {9} --num_post_cons 2 --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --netname {2} --dataset {3} --relu_transformer {4} --label {5} --data_dir {6} --num_tests {7} --epsilon {8} --patch_size {9} --num_post_cons -1 --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} {9} :::: $INSTANCES_PATH
