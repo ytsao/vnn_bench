@@ -1,6 +1,0 @@
-Images Verified/Total: 19/20
-Splits Submatched/Verified: 0.780/0.950
-Time spent: 49.76
-Images Verified/Total: 19/20
-Splits Submatched/Verified: 0.000/0.950
-Time spent: 1.24
