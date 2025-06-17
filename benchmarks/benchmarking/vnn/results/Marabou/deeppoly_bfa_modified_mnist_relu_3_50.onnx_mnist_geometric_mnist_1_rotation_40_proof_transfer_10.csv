@@ -1,2 +1,2 @@
 robustness_type,network_name,dataset,relu_transformer,label,data_dir,num_tests,epsilon,patch_size,num_true,num_verified,verified_ratio,num_submatched,total_patches_or_splits,submatched_ratio,is_timeout,processing_time
-geometric,modified_mnist_relu_3_100.onnx,mnist,deeppoly_bfa,,mnist_1_rotation_40_proof_transfer,100,0.0,0,98,91,0.9285714285714286,11297,100,0.600042492165507,False,9054.898
+geometric,modified_mnist_relu_3_50.onnx,mnist,deeppoly_bfa,,mnist_1_rotation_40_proof_transfer,100,0.0,0,98,51,0.5204081632653061,4025,100,0.3148959474260679,False,2794.107
