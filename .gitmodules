@@ -4,3 +4,12 @@
 [submodule "benchmarks/minizinc-benchmarks"]
 	path = benchmarks/data/minizinc-benchmarks
 	url = git@github.com:MiniZinc/minizinc-benchmarks.git
+[submodule "benchmarks/data/safeNLP"]
+	path = benchmarks/data/safeNLP
+	url = git@github.com:ANTONIONLP/safeNLP.git
+[submodule "benchmarks/data/dist-shift-vnn-comp"]
+	path = benchmarks/data/dist-shift-vnn-comp
+	url = git@github.com:wu-haoze/dist-shift-vnn-comp.git
+[submodule "benchmarks/data/cora-vnncomp2024-benchmark"]
+	path = benchmarks/data/cora-vnncomp2024-benchmark
+	url = git@github.com:kollerlukas/cora-vnncomp2024-benchmark.git
