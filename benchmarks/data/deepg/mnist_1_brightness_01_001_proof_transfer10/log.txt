@@ -1,3 +1,0 @@
-Avg poly runtime (s): 0
-Avg box runtime (s): 0
-Avg polyhedra distance: -nan
