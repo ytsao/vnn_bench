@@ -1,9 +1,3 @@
-[submodule "benchmarks/mzn-challenge"]
-	path = benchmarks/data/mzn-challenge
-	url = git@github.com:MiniZinc/mzn-challenge.git
-[submodule "benchmarks/minizinc-benchmarks"]
-	path = benchmarks/data/minizinc-benchmarks
-	url = git@github.com:MiniZinc/minizinc-benchmarks.git
 [submodule "benchmarks/data/safeNLP"]
 	path = benchmarks/data/safeNLP
 	url = git@github.com:ANTONIONLP/safeNLP.git
