@@ -1,7 +1,0 @@
-robustness_type,network_name,dataset,relu_transformer,data_dir,num_tests,epsilon,patch_size
--g,modified_mnist_relu_3_50.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
--g,modified_mnist_relu_3_100.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
--g,modified_mnist_relu_6_100.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
--g,modified_mnist_relu_6_200.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
--g,modified_mnist_relu_9_100.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
--g,modified_mnist_relu_9_200.onnx,mnist,symbolic_bfa,mnist_1_rotation_40_proof_transfer,100,0,0
