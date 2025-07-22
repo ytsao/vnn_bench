@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-sufficiency-mnist-deepsrgr-deeppoly-99.out
+#SBATCH --output=slurm-sufficiency-mnist-deepsrgr0015-abcrown.out
 
 # Exits when an error occurs.
 set -e
@@ -36,10 +36,10 @@ fi
 
 # I. Define the campaign to run.
 VNN_VERIFIER="sufficiency"
-VERSION="v-mnist-deepsrgr-deeppoly-99" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VERSION="v-mnist-deepsrgr0015-abcrown" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/mnist_deepsrgr0026.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/mnist_deepsrgr0015.csv"
 
 # II. Prepare the command lines and output directory.
 VNN_COMMAND="python3 $VNN_WORKFLOW_PATH/../../../../../main.py"
