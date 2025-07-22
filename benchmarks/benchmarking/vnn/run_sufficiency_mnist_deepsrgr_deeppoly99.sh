@@ -7,7 +7,7 @@
 #SBATCH --mem=0
 #SBATCH --qos=normal
 #SBATCH --export=ALL
-#SBATCH --output=slurm-BaFA-mnist-linfinity-100.out
+#SBATCH --output=slurm-sufficiency-mnist-deepsrgr-deeppoly-99.out
 
 # Exits when an error occurs.
 set -e
@@ -35,13 +35,11 @@ if [ -n "$2" ]; then
 fi
 
 # I. Define the campaign to run.
-VNN_VERIFIER="bfa_sas"
-VERSION="v-linfinity-mnist-100" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VNN_VERIFIER="sufficiency"
+VERSION="v-mnist-deepsrgr-deeppoly-99" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/norm_perturbation.csv"
-# INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_linfinty_test.csv"
-# INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/robustness_property_patch_test.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/benchmarking/mnist_deepsrgr0037.csv"
 
 # II. Prepare the command lines and output directory.
 VNN_COMMAND="python3 $VNN_WORKFLOW_PATH/../../../../../main.py"
@@ -56,7 +54,7 @@ else
   NUM_PARALLEL_EXPERIMENTS=1
 fi
 
-DUMP_PY_PATH="$VNN_WORKFLOW_PATH/dump_BaFA.py"
+DUMP_PY_PATH="$VNN_WORKFLOW_PATH/dump.py"
 
 # For replicability.
 cp -r $VNN_WORKFLOW_PATH $OUTPUT_DIR/
@@ -68,4 +66,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --verifier bfa-sas --netname {2} --dataset {3} --relu_transformer {4} --data_dir {5} --num_tests {6} --epsilon {7} --patch_size {8} --num_post_cons 1 --timelimit 1 '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} {5} {6} {7} {8} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND {1} --config={2} --network_filename={3} --vnnlib_filename={4} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} {4} :::: $INSTANCES_PATH

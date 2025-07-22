@@ -17,19 +17,15 @@ if __name__ == "__main__":
   network_name = sys.argv[4]
   dataset = sys.argv[5]
   relu_transformer = sys.argv[6]
-  label = sys.argv[7]
-  template_method = sys.argv[8]
-  template_domain = sys.argv[9]
-  template_layers = sys.argv[10]
-  template_with_hyperplanes = sys.argv[11]
-  template_dir = sys.argv[12]
-  data_dir = sys.argv[13]
-  num_tests = sys.argv[14]
-  epsilon = sys.argv[15]
-  patch_size = sys.argv[16]
+  # label = sys.argv[7]
+  data_dir = sys.argv[7]
+  num_tests = sys.argv[8]
+  epsilon = sys.argv[9]
+  patch_size = sys.argv[10]
+  # num_post_cons = sys.argv[11]
   extras = []
 
-  for i in range(17, len(sys.argv)):
+  for i in range(11, len(sys.argv)):
     arg = sys.argv[i].strip().replace(' ', '-')
     print(arg)
     if arg != "" and arg != "-s": # we use "-s" when there are "no special options to be used".
@@ -39,7 +35,8 @@ if __name__ == "__main__":
         extras[-1] = extras[-1][1:]
 
   # uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
-  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{template_layers}_{data_dir}_{num_tests}_{patch_size}"
+  # uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{data_dir}_{num_tests}_{patch_size}_{num_post_cons}"
+  uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{epsilon}_{data_dir}_{num_tests}_{patch_size}"
   if len(extras) > 0:
     uid += "_"
     uid += "_".join(extras)
@@ -57,16 +54,12 @@ if __name__ == "__main__":
     "network_name": network_name,
     "dataset": dataset,
     "relu_transformer": relu_transformer,
-    "label": label,
-    "template_method": template_method,
-    "template_domain": template_domain,
-    "template_layers": template_layers,
-    "template_with_hyperplanes": template_with_hyperplanes,
-    "template_dir": template_dir,
+    # "label": label,
     "data_dir": data_dir,
     "num_tests": num_tests,
     "epsilon": epsilon,
     "patch_size": patch_size,
+    # "num_post_cons": num_post_cons,
     "datetime": datetime.datetime.now().isoformat()
   }
 
