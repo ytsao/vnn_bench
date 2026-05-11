@@ -15,12 +15,12 @@ if os.environ.get("VNN_DEBUG", "OFF") == "ON":
 if __name__ == "__main__":
     output_dir = sys.argv[1]
     verifier = sys.argv[2]
-    config_file = sys.argv[3]
-    network_filename = sys.argv[4]
-    vnnlib_filename = sys.argv[5]
+    network_filename = sys.argv[3]
+    vnnlib_filename = sys.argv[4]
+    timeout = sys.argv[5]
     extras = []
 
-    for i in range(11, len(sys.argv)):
+    for i in range(6, len(sys.argv)):
         arg = sys.argv[i].strip().replace(" ", "-")
         print(arg)
         if (
@@ -31,9 +31,7 @@ if __name__ == "__main__":
             if extras[-1].startswith("-"):
                 extras[-1] = extras[-1][1:]
 
-    # uid = verifier.replace('.', '-') + "_" + robustness_type + "_" + network_name + "_" + dataset + "_" + epsilon
-    # uid: str = f"{verifier}_{robustness_type}_{network_name}_{dataset}_{label}_{epsilon}_{data_dir}_{num_tests}_{patch_size}_{num_post_cons}"
-    uid: str = f"{verifier}_{config_file}_{network_filename}_{vnnlib_filename}"
+    uid: str = f"{verifier}_{network_filename}_{vnnlib_filename}_{timeout}"
     if len(extras) > 0:
         uid += "_"
         uid += "_".join(extras)
@@ -47,9 +45,9 @@ if __name__ == "__main__":
     stat_base = {
         "configuration": uid,
         "vnn_verifier": verifier,
-        "config_file": config_file,
         "network_filename": network_filename,
         "vnnlib_filename": vnnlib_filename,
+        "timeout": timeout,
         "datetime": datetime.datetime.now().isoformat(),
     }
 
