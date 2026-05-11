@@ -42,7 +42,7 @@ MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/sat_relu/instances.csv"
 
 # II. Prepare the command lines and output directory.
-VNN_COMMAND="python3 $VNN_WORKFLOW_PATH/../../../../../main.py"
+VNN_COMMAND="$VNN_WORKFLOW_PATH/../../../../turbo/build/cpu-release-local/turbo"
 OUTPUT_DIR="$BENCHMARKS_DIR_PATH/campaign/$MACHINE/$VNN_VERIFIER-$VERSION"
 mkdir -p $OUTPUT_DIR
 
@@ -66,4 +66,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND --network_filename={1} --vnnlib_filename={2} --timeout={3} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -disable_simplify -vnnlib_path {2} -onnx_path {1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
