@@ -22,3 +22,4 @@ done
 #cd minizinc
 
 mzn-bench collect-statistics $VNNBENCH_TMP $1/../$(basename $1).csv
+

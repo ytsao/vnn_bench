@@ -1,13 +1,15 @@
 #!/bin/bash -l
-#SBATCH --time=12:00:00
-#SBATCH --partition=batch
+#SBATCH --time=4:00:00
+#SBATCH --partition=gpu
 #SBATCH --nodes=2
+#SBATCH --gpus-per-node=4
 #SBATCH --exclusive
-#SBATCH --ntasks-per-node=1 # 4 GPUs so 4 tasks per nodes.
+#SBATCH --ntasks-per-node=4 # 4 GPUs so 4 tasks per nodes.
 #SBATCH --mem=0
-#SBATCH --qos=normal
+#SBATCH -A p201230
+#SBATCH --qos=default
 #SBATCH --export=ALL
-#SBATCH --output=slurm-jet-cpu.out
+#SBATCH --output=slurm-jet-gpu.out
 
 # Exits when an error occurs.
 set -e
@@ -36,19 +38,19 @@ fi
 
 # I. Define the campaign to run.
 VNN_VERIFIER="jet"
-VERSION="cpu" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VERSION="gpu" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/sat_relu/instances.csv"
 
 # II. Prepare the command lines and output directory.
-VNN_COMMAND="$VNN_WORKFLOW_PATH/../../../../turbo/build/cpu-release-local/turbo"
+VNN_COMMAND="$VNN_WORKFLOW_PATH/../../../../turbo/build/gpu-release-local/turbo"
 OUTPUT_DIR="$BENCHMARKS_DIR_PATH/campaign/$MACHINE/$VNN_VERIFIER-$VERSION"
 mkdir -p $OUTPUT_DIR
 
 # If we are on the HPC, we encapsulate the command in a srun command to reserve the resources needed.
 if [ -n "${SLURM_JOB_NODELIST}" ]; then
-  SRUN_COMMAND="srun --exclusive --cpus-per-task=$CORES --nodes=1 --ntasks=1 --cpu-bind=verbose"
+  SRUN_COMMAND="srun --exclusive --cpus-per-task=$CORES --gpus-per-task=1 --nodes=1 --ntasks=1 --cpu-bind=verbose"
   NUM_PARALLEL_EXPERIMENTS=$((SLURM_JOB_NUM_NODES * 4)) # How many experiments are we running in parallel? One per GPU per default.
 else
   NUM_PARALLEL_EXPERIMENTS=1
@@ -66,4 +68,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -disable_simplify -vnnlib_path {2} -onnx_path {1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -disable_simplify -arch fbarebones -vnnlib_path ${BENCHMARKS_DIR_PATH}/data/sat_relu/{2} -onnx_path ${BENCHMARKS_DIR_PATH}/data/sat_relu/{1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
