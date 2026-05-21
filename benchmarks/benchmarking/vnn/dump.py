@@ -32,7 +32,8 @@ if __name__ == "__main__":
                 extras[-1] = extras[-1][1:]
 
     name = network_filename.split("/")[-1].split(".")[0]
-    uid: str = f"{verifier}_{name}_{timeout}"
+    prop = vnnlib_filename.split("/")[-1].split(".")[0]
+    uid: str = f"{verifier}_{name}_{prop}_{timeout}"
     if len(extras) > 0:
         uid += "_"
         uid += "_".join(extras)
