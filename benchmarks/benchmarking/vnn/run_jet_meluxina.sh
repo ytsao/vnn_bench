@@ -42,7 +42,7 @@ CATEGORY="acasxu_2023"
 VERSION="gpu-$CATEGORY" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/acasxu_2023/instances.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/vnncomp2025_benchmarks/benchmarks/$CATAGORY/instances.csv"
 
 # II. Prepare the command lines and output directory.
 VNN_COMMAND="$VNN_WORKFLOW_PATH/../../../../turbo/build/gpu-release-local/turbo"

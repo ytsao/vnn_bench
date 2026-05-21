@@ -9,7 +9,7 @@
 #SBATCH -A p201230
 #SBATCH --qos=default
 #SBATCH --export=ALL
-#SBATCH --output=slurm-neuralsat-cpu.out
+#SBATCH --output=slurm-neuralsat-gpu.out
 
 # Shortcuts of paths to benchmarking directories.
 VNN_WORKFLOW_PATH=$(dirname $(realpath "run.sh"))
@@ -32,6 +32,9 @@ if [ -n "$2" ]; then
   exit 0
 fi
 
+source /project/home/p201230/conda_base_path/miniconda3/etc/profile.d/conda.sh
+conda activate neuralsat
+
 # I. Define the campaign to run.
 VNN_VERIFIER="neuralsat"
 CATEGORY="acasxu_2023"
@@ -39,10 +42,10 @@ DEVICE="cuda"
 VERSION="$DEVICE-$CATEGORY" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
-INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/vnncomp2025_benchmarks/$CATEGORY/instances.csv"
+INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/vnncomp2025_benchmarks/benchmarks/$CATEGORY/instances.csv"
 
 # II. Prepare the command lines and output directory.
-VNN_COMMAND=python "$VNN_WORKFLOW_PATH/../../../../neuralsat/src/main.py"
+VNN_COMMAND="python $VNN_WORKFLOW_PATH/../../../../neuralsat/src/main.py"
 OUTPUT_DIR="$BENCHMARKS_DIR_PATH/campaign/$MACHINE/$VNN_VERIFIER-$VERSION"
 mkdir -p $OUTPUT_DIR
 
