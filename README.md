@@ -1,6 +1,6 @@
-# Benchmarking Neural Network Verification
+# Benchmarking Neural Network Verifiers
 
-In this document, we discuss our workflow to benchmark neural network verifiers.
+In this document, we discuss our workflow to benchmark different neural network verifiers.
 
 ## Prerequisites
 
@@ -26,18 +26,12 @@ By cloning this project, you will have the following directory structure:
   - benchmarking/
     - vnn/
       - aion.sh
-      - precision5820.sh
+      - meluxina.sh
       - dump.py
-      - run.sh
+      - run_[different_envs].sh
   - campaign/
   - data/
-    - cifar/
-    - cifar_nets/
-    - deepg/
-    - marabou-cifar10/
-    - mnist/
-    - mnist_nets/
-    - toy_nets/
+    - sat_relu/
 
 ## Benchmarking
 
@@ -45,7 +39,7 @@ We call a _campaign_ a benchmarking session uniquely identified by a solver's id
 
 ### Instances
 
-All instances are from vnn-comp 2021 - 20024.
+All instances are from VNN-COMP.
 
 ### Starting a campaign
 
@@ -56,20 +50,20 @@ All instances are from vnn-comp 2021 - 20024.
 where the script name is the name of the machine and contain any needed initialization (e.g., loading modules or a Python virtual environment).
 You can create yours for your own machine.
 
-The results of the experiments are in the `campaign/aion/org.choco.choco-v4.10.14` directory.
+The results of the experiments are in the `campaign/meluxina/[verifier]-[version]` directory.
 In that directory, you also have the folder of your workflow copied and inside the `jobs.log` which contains all commands that have been executed.
 If you call `./run.sh aion.sh` again, only the commands that have not been executed will be executed, this can be useful if you set up a SLURM walltime that was too short.
-If you call `./run.sh aion.sh ../../campaign/aion/org.choco.choco-v4.10.14/mzn2023/jobs.log`, the script will re-execute all commands that might have failed previously.
+If you call `./run.sh aion.sh ../../campaign/aion/[verifier]-[version]/[benchmark]/jobs.log`, the script will re-execute all commands that might have failed previously.
 
 ### Note on the `parallel` command
 
 The `parallel` command runs the set of experiments in parallel.
 It works locally on your computer, but when you are on a HPC, the experiments are automatically run _across nodes_ (for 10 nodes, it runs 10 experiments in parallel at each instant).
 This command is useful when the Slurm jobs queue is limited in size per user, and you have thousands of experiments to run.
-The full command (in `minizinc/run.sh`) is:
+The full command (in `run.sh`) is:
 
 ```
-parallel --no-run-if-empty --rpl '{} uq()' -k --colsep ',' --skip-first-line -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $MZN_COMMAND $BENCHMARKING_DIR_PATH/{2} $BENCHMARKING_DIR_PATH/{3} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR {1} {2} {3} $MZN_SOLVER $CORES $THREADS :::: $INSTANCES_PATH
+parallel --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $MZN_COMMAND $BENCHMARKING_DIR_PATH/{2} $BENCHMARKING_DIR_PATH/{3} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR {1} {2} {3} $MZN_SOLVER $CORES $THREADS :::: $INSTANCES_PATH
 ```
 
 Here are the options of the command used for our purpose:

@@ -12,14 +12,14 @@ fi
 VNNBENCH_TMP=$1/tmp
 mkdir -p $VNNBENCH_TMP
 VNNBENCH_TMP=$(realpath $VNNBENCH_TMP)
-#for file in $1/*.json; do
-#  python3 postprocess.py $VNNBENCH_TMP $file
-#done
+for file in $1/*.json; do
+  python3 postprocess.py $VNNBENCH_TMP $file
+done
 
-cd ..  # mzn-bench needs to access the model and data files from "../data".
+#cd ..  # mzn-bench needs to access the model and data files from "../data".
 #mzn-bench check-solutions $MZNBENCH_TMP || exit 1
-mzn-bench check-statuses $VNNBENCH_TMP || exit 1
-cd minizinc
+#mzn-bench check-statuses $VNNBENCH_TMP || exit 1
+#cd minizinc
 
-Vnn-bench collect-objectives $VNNBENCH_TMP $1/../$(basename $1)-objectives.csv
-vnn-bench collect-statistics $VNNBENCH_TMP $1/../$(basename $1).csv
+mzn-bench collect-statistics $VNNBENCH_TMP $1/../$(basename $1).csv
+

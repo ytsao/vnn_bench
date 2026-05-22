@@ -7,3 +7,6 @@
 [submodule "benchmarks/data/cora-vnncomp2024-benchmark"]
 	path = benchmarks/data/cora-vnncomp2024-benchmark
 	url = git@github.com:kollerlukas/cora-vnncomp2024-benchmark.git
+[submodule "benchmarks/data/vnncomp2025_benchmarks"]
+	path = benchmarks/data/vnncomp2025_benchmarks
+	url = git@github.com:ytsao/vnncomp2025_benchmarks.git
