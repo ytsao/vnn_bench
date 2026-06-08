@@ -2,7 +2,6 @@
 #SBATCH --time=00:10:00
 #SBATCH --partition=cpu
 #SBATCH --nodes=1
-#SBATCH --gpus-per-node=4
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node=4 # 4 GPUs so 4 tasks per nodes.
 #SBATCH --mem=0
