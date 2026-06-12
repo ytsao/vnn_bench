@@ -31,6 +31,41 @@ STATUS_MAP = {
     "timeout": "UNKNOWN"
 }
 
+
+def normalize_column_name(key: str) -> str:
+    key = str(key).strip()
+    key = key.lower().replace(" ", "_")
+    key = re.sub(r"[^a-z0-9_]+", "_", key)
+    key = re.sub(r"_+", "_", key).strip("_")
+    return key or "field"
+
+
+def flatten_json(value, parent_key: str = "", sep: str = "."):
+    if isinstance(value, dict):
+        result = {}
+        for key, nested in value.items():
+            full_key = f"{parent_key}{sep}{key}" if parent_key else str(key)
+            result.update(flatten_json(nested, full_key, sep=sep))
+        return result
+    if isinstance(value, (list, tuple)):
+        return {parent_key: json.dumps(value, ensure_ascii=False)}
+    return {parent_key: value}
+
+
+def parse_last_row(raw_line: str):
+    try:
+        parsed = json.loads(raw_line)
+        if isinstance(parsed, dict):
+            return {normalize_column_name(k): v for k, v in flatten_json(parsed).items()}
+        return {"value": parsed}
+    except json.JSONDecodeError:
+        info = {}
+        for match in re.finditer(r"([A-Za-z0-9 _%]+?)\s*[:=]\s*([^,]+)", raw_line):
+            key = normalize_column_name(match.group(1))
+            value = match.group(2).strip()
+            info[key] = value
+        return info
+
 def get_standard_status(raw_status):
     if not raw_status: return "UNKNOWN"
     s = str(raw_status).lower().strip('= ')
@@ -52,16 +87,31 @@ if __name__ == "__main__":
     solutions = []
     unknowns = []
     errors = []
+    json_rows = []
+    last_line_raw = None
+    last_line_info = {}
 
     if input_file.exists():
         with open(input_file, "r") as f:
-            for line in f:
+            for line_idx, line in enumerate(f):
                 clean_line = line.strip()
-                if not clean_line: continue
+                if not clean_line:
+                    continue
+                last_line_raw = clean_line
 
                 try:
                     # 1. 嘗試解析為 JSON
                     output = json.loads(clean_line)
+                    if output.get("type") == "statistics":
+                        row = {
+                            "file_name": input_file.name,
+                            "file_configuration": uid,
+                            "line_index": line_idx,
+                            "line_type": "json",
+                            "json_type": output.get("type"),
+                        }
+                        row.update(flatten_json(output))
+                        json_rows.append(row)
 
                     if output.get("type") == "lattice-land" and output.get("lattice-land") == "start":
                         statistics = {"configuration": uid, "status": "UNKNOWN"}
@@ -118,21 +168,47 @@ if __name__ == "__main__":
     statistics["unknowns"] = unknowns
     statistics["errors"] = errors
 
+    # 解析最後一行資訊，用於 CSV 追加欄位
+    if last_line_raw is not None:
+        last_line_info = parse_last_row(last_line_raw)
+
     # 寫入檔案
     os.makedirs(output_dir, exist_ok=True)
     if solutions:
         with open(sol_filename, "w") as f:
             yaml.dump(solutions, f)
-    
+
+    # Export JSON rows and last-row metadata to CSV
+    json_csv_filename = Path(output_dir) / f"{uid}_json.csv"
+    if json_rows or last_line_raw is not None:
+        if json_rows:
+            df_json = pd.DataFrame(json_rows)
+        else:
+            df_json = pd.DataFrame([
+                {
+                    "file_name": input_file.name,
+                    "file_configuration": uid,
+                    "line_index": 0,
+                    "line_type": "none",
+                }
+            ])
+
+        if last_line_raw is not None:
+            df_json["last_line_raw"] = last_line_raw
+            for key, value in last_line_info.items():
+                df_json[f"last_{normalize_column_name(key)}"] = value
+
+        df_json.to_csv(json_csv_filename, index=False, lineterminator="\n")
+
     # Use pandas DataFrame for deterministic column ordering
     df = pd.DataFrame([statistics])
-    
+
     # Reorder columns: standard columns first, then any extra columns alphabetically
     cols = DEFAULT_STAT_COLUMNS.copy()
     extra_cols = sorted([c for c in df.columns if c not in cols])
     cols.extend(extra_cols)
     df = df[[c for c in cols if c in df.columns]]
-    
+
     # Convert DataFrame row back to dictionary with ordered columns for YAML
     ordered_stats = df.iloc[0].to_dict()
     with open(stats_filename, "w") as f:

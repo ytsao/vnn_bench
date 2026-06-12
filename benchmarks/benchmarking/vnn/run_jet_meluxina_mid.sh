@@ -1,7 +1,7 @@
 #!/bin/bash -l
-#SBATCH --time=10:00:00
+#SBATCH --time=08:30:00
 #SBATCH --partition=gpu
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 #SBATCH --gpus-per-node=4
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node=4 # 4 GPUs so 4 tasks per nodes.
@@ -9,7 +9,11 @@
 #SBATCH -A p201230
 #SBATCH --qos=default
 #SBATCH --export=ALL
-#SBATCH --output=slurm-abcrown-gpu.out
+#SBATCH --output=slurm-jet-gpu.out
+
+# Exits when an error occurs.
+set -e
+set -x # useful for debugging.
 
 # Shortcuts of paths to benchmarking directories.
 VNN_WORKFLOW_PATH=$(dirname $(realpath "run.sh"))
@@ -22,7 +26,6 @@ if [ -z "$1" ]; then
   echo "  Name of the machine running the experiments with the configuration of the environment."
   exit 1
 fi
-
 source $1
 source ${BENCHMARKS_DIR_PATH}/../pybench/bin/activate
 
@@ -34,17 +37,15 @@ if [ -n "$2" ]; then
 fi
 
 # I. Define the campaign to run.
-VNN_VERIFIER="abcrown"
-CATEGORY="safenlp_2024"
-DEVICE="cuda"
-VERSION="$DEVICE-$CATEGORY" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+VNN_VERIFIER="jet"
+CATEGORY="sat_relu"
+VERSION="gpu-${CATEGORY}-mid" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/vnncomp2025_benchmarks/benchmarks/$CATEGORY/instances.csv"
 
 # II. Prepare the command lines and output directory.
-CONDA_PYTHON="/project/home/p201230/conda_base_path/miniconda3/envs/alpha-beta-crown/bin/python"
-VNN_COMMAND="$CONDA_PYTHON $VNN_WORKFLOW_PATH/../../../../../alpha-beta-CROWN/complete_verifier/vnncomp_main.py"
+VNN_COMMAND="$VNN_WORKFLOW_PATH/../../../../turbo/build/gpu-release-local/turbo"
 OUTPUT_DIR="$BENCHMARKS_DIR_PATH/campaign/$MACHINE/$VNN_VERIFIER-$VERSION"
 mkdir -p $OUTPUT_DIR
 
@@ -68,5 +69,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-# parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --NOPGD --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -arch fbarebones -var_order anti_first_fail -value_order indomain_mid_split -disable_simplify -vnnlib_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} -onnx_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH

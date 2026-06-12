@@ -34,7 +34,7 @@ if [ -n "$2" ]; then
 fi
 
 # I. Define the campaign to run.
-VNN_VERIFIER="abcrown"
+VNN_VERIFIER="abcrown-no-attacks"
 CATEGORY="safenlp_2024"
 DEVICE="cuda"
 VERSION="$DEVICE-$CATEGORY" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
@@ -68,5 +68,5 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-# parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --NOPGD --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --NOPGD --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+# parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND $CATEGORY ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} "${VNN_VERIFIER}_${VERSION}.csv" {3} --TRY_CROWN '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
