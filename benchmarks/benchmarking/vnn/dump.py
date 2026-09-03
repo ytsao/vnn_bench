@@ -33,6 +33,8 @@ if __name__ == "__main__":
 
     # name = network_filename.split("/")[-1].split(".")[0]
     # prop = vnnlib_filename.split("/")[-1].split(".")[0]
+    network_filename = network_filename.replace('/', '_')
+    vnnlib_filename = vnnlib_filename.replace('/', '_')
     uid: str = f"{verifier}_{network_filename}_{vnnlib_filename}_{timeout}"
     if len(extras) > 0:
         uid += "_"

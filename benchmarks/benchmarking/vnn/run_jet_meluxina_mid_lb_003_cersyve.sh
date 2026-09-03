@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --time=06:00:00
+#SBATCH --time=03:00:00
 #SBATCH --partition=gpu
 #SBATCH --nodes=2
 #SBATCH --gpus-per-node=4
@@ -9,7 +9,7 @@
 #SBATCH -A p201230
 #SBATCH --qos=default
 #SBATCH --export=ALL
-#SBATCH --output=slurm-jet-gpu-mid-ub-tllverifybench_2023.out
+#SBATCH --output=slurm-jet-gpu-mid-lb-cersyve-003.out
 
 # Exits when an error occurs.
 set -e
@@ -38,8 +38,8 @@ fi
 
 # I. Define the campaign to run.
 VNN_VERIFIER="jet"
-CATEGORY="tllverifybench_2023"
-VERSION="gpu-${CATEGORY}-mid-ub" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
+CATEGORY="cersyve"
+VERSION="gpu-${CATEGORY}-mid-lb-003" # Note that this is only for the naming of the output directory, we do not verify the actual version of the solver.
 CORES=1 # The number of cores used on the node.
 MACHINE=$(basename "$1" ".sh")
 INSTANCES_PATH="$BENCHMARKS_DIR_PATH/data/vnncomp2025_benchmarks/benchmarks/$CATEGORY/instances.csv"
@@ -69,4 +69,4 @@ lshw -json > $OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/hardware-"$MACHINE".js
 # III. Run the experiments in parallel.
 # The `parallel` command spawns one `srun` command per experiment, which executes the orca verifier with the right resources.
 COMMANDS_LOG="$OUTPUT_DIR/$(basename "$VNN_WORKFLOW_PATH")/jobs.log"
-parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -arch fbarebones -var_order anti_first_fail -value_order indomain_mid_ub_split -disable_simplify -vnnlib_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} -onnx_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
+parallel --verbose --no-run-if-empty --rpl '{} uq()' -k --colsep ',' -j $NUM_PARALLEL_EXPERIMENTS --resume --joblog $COMMANDS_LOG $SRUN_COMMAND $VNN_COMMAND -s -v -i -t {3} -arch fbarebones -var_order anti_first_fail -value_order indomain_mid_lb_split -epsilon 0.001 -disable_simplify -vnnlib_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{2} -onnx_path ${BENCHMARKS_DIR_PATH}/data/vnncomp2025_benchmarks/benchmarks/${CATEGORY}/{1} '2>&1' '|' python3 $DUMP_PY_PATH $OUTPUT_DIR $VNN_VERIFIER {1} {2} {3} :::: $INSTANCES_PATH
